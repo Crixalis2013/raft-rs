@@ -126,10 +126,12 @@ pub type Result<T> = result::Result<T, Error>;
 #[cfg(test)]
 mod tests {
     use super::*;
+    use env_logger;
     use std::io;
 
     #[test]
     fn test_error_equal() {
+        let _ = env_logger::try_init();
         assert_eq!(Error::StepPeerNotFound, Error::StepPeerNotFound);
         assert_eq!(
             Error::Store(StorageError::Compacted),
@@ -168,6 +170,7 @@ mod tests {
 
     #[test]
     fn test_storage_error_equal() {
+        let _ = env_logger::try_init();
         assert_eq!(StorageError::Compacted, StorageError::Compacted);
         assert_eq!(StorageError::Unavailable, StorageError::Unavailable);
         assert_eq!(

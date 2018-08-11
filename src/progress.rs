@@ -418,10 +418,12 @@ impl Inflights {
 
 #[cfg(test)]
 mod test {
+    use env_logger;
     use progress::Inflights;
 
     #[test]
     fn test_inflight_add() {
+        let _ = env_logger::try_init();
         let mut inflight = Inflights::new(10);
         for i in 0..5 {
             inflight.add(i);
@@ -481,6 +483,7 @@ mod test {
 
     #[test]
     fn test_inflight_free_to() {
+        let _ = env_logger::try_init();
         let mut inflight = Inflights::new(10);
         for i in 0..10 {
             inflight.add(i);
@@ -533,6 +536,7 @@ mod test {
 
     #[test]
     fn test_inflight_free_first_one() {
+        let _ = env_logger::try_init();
         let mut inflight = Inflights::new(10);
         for i in 0..10 {
             inflight.add(i);
