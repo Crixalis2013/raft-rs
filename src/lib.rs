@@ -286,3 +286,17 @@ pub mod prelude {
 
     pub use read_only::{ReadOnlyOption, ReadState};
 }
+
+/// Initialization code common across all tests.
+///
+/// A duplicate exists in `tests/tests.rs`, please update them at the same time.
+///
+/// They both exist because `cargo test` on things in `tests/` builds the crate without `#[cfg(test)]` and we don't want to require `env_logger` for non-test builds.
+///
+/// Appropriate things:
+///     * logger setup
+///     * fail-rs setup
+#[cfg(test)]
+pub fn test_init() {
+    env_logger::try_init().ok();
+}

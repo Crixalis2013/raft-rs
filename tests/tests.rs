@@ -17,10 +17,10 @@
 
 #[macro_use]
 extern crate log;
-extern crate env_logger;
 extern crate protobuf;
 extern crate raft;
 extern crate rand;
+extern crate env_logger;
 
 /// Get the count of macro's arguments.
 ///
@@ -82,6 +82,20 @@ macro_rules! map {
             temp_map
         }
     };
+}
+
+/// Initialization code common across all tests.
+///
+/// A duplicate exists in `src/lib.rs`, please update them at the same time.
+///
+/// They both exist because `cargo test` on things in `tests/` builds the crate without `#[cfg(test)]`
+///
+/// Appropriate things:
+///     * logger setup
+///     * fail-rs setup
+#[cfg(test)]
+pub fn test_init() {
+    env_logger::try_init().ok();
 }
 
 mod cases;
