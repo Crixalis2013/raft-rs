@@ -479,8 +479,8 @@ impl<T: Storage> RawNode<T> {
 #[cfg(test)]
 mod test {
     use super::is_local_msg;
-    use test_init;
     use eraftpb::MessageType;
+    use test_init;
 
     #[test]
     fn test_is_local_msg() {

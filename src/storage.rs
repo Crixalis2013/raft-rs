@@ -323,9 +323,9 @@ mod test {
     use eraftpb::{ConfState, Entry, Snapshot};
     use protobuf;
 
-    use test_init;
     use errors::{Error as RaftError, StorageError};
     use storage::{MemStorage, Storage};
+    use test_init;
 
     // TODO extract these duplicated utility functions for tests
 

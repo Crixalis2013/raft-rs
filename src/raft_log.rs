@@ -487,12 +487,12 @@ impl<T: Storage> RaftLog<T> {
 mod test {
     use std::panic::{self, AssertUnwindSafe};
 
-    use test_init;
     use eraftpb;
     use errors::{Error, StorageError};
     use protobuf;
     use raft_log::{self, RaftLog};
     use storage::MemStorage;
+    use test_init;
 
     fn new_raft_log(s: MemStorage) -> RaftLog<MemStorage> {
         RaftLog::new(s, String::from(""))

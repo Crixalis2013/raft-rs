@@ -183,9 +183,9 @@ impl Unstable {
 
 #[cfg(test)]
 mod test {
-    use test_init;
     use eraftpb::{Entry, Snapshot, SnapshotMetadata};
     use log_unstable::Unstable;
+    use test_init;
 
     fn new_entry(index: u64, term: u64) -> Entry {
         let mut e = Entry::new();

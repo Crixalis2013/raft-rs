@@ -418,8 +418,8 @@ impl Inflights {
 
 #[cfg(test)]
 mod test {
-    use test_init;
     use progress::Inflights;
+    use test_init;
 
     #[test]
     fn test_inflight_add() {
